@@ -1,0 +1,12 @@
+[Unit]
+Description=Control of the CPU Fan
+
+[Service]
+Type=simple
+ExecStart=/root/fan/fan_control.sh
+Restart=always
+RestartSec=30
+SyslogIdentifier=FAN
+
+[Install]
+WantedBy=multi-user.target
