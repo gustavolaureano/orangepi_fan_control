@@ -35,5 +35,20 @@ systemctl status fan.service
 ```
 
 
+## Stress testing it
+
+start 4 jobs to use CPU and keep then in background
+```
+for i in 1 2 3 4 ; do nice -n 20 cat /dev/zero > /dev/null & done 
+```
+
+
+kill all started jobs in background
+```
+for pid in $( jobs -p ) ; do kill -9 $pid ; done
+```
+
+
+
 You can find more detais in this blog post:
 https://laureanogustavo.blogspot.com/2019/12/automatic-fan-control-on-orangepi-pc-or.html
